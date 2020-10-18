@@ -1,55 +1,74 @@
-from  tkinter import *
 
+from tkinter import *
 
-class GUI:
-    def __init__(self,parent):
-        self.parent = parent
-        self.processes = ""
-        self.operations = ["+","-","×","÷"]
+class GUI :
+    def __init__ (self,parent):
+        self.parent=parent
+        self.processes=""
         self.initUI()
-        
-
+        self.operations = ["+","-","×","÷"]
+    
     def initUI(self):
-        self.display = Label(height=3, width=42, bg="white",fg="red",font=("digital",10,"bold"), anchor=CENTER)
-        self.display.place(x=5, y=7)
-        self.ce_button = Button(text="CE",fg="red", width=16,height=2, bd=4, command=self.clear)
-        self.ce_button.place(x=5, y=60)
-        self.c_button = Button(text="C",fg="red", width=7, bd=4, height=2, command=self.clear)
-        self.c_button.place(x=130, y=60)
-        self.delete_button = Button(text="Backspace ⇽",fg="green", width=14, bd=4, height=2, command=self.delete)
-        self.delete_button.place(x=194, y=60)
-        self.seven_button = Button(text="7", width=7, bd=4, height=2, command=self.seven)
-        self.seven_button.place(x=5, y=105)
-        self.eight_button = Button(text="8", width=7, bd=4, height=2, command=self.eight)
-        self.eight_button.place(x=68, y=105)
-        self.nine_button = Button(text="9", width=7, bd=4, height=2, command=self.nine)
-        self.nine_button.place(x=130, y=105)
-        self.plus_button = Button(text="+", width=14,fg="red", bd=4, height=2, command=self.plus)
-        self.plus_button.place(x=194, y=105)
-        self.four_button = Button(text="4", width=7, bd=4, height=2, command=self.four)
-        self.four_button.place(x=5, y=150)
-        self.five_button = Button(text="5", width=7, bd=4, height=2, command=self.five)
-        self.five_button.place(x=68, y=150)
-        self.six_button = Button(text="6", width=7, bd=4, height=2, command=self.six)
-        self.six_button.place(x=130, y=150)
-        self.minus_button = Button(text="-", width=14,fg="red", bd=4, height=2, command=self.minus)
-        self.minus_button.place(x=194, y=150)
-        self.one_button = Button(text="1", width=7, bd=4, height=2, command=self.one)
-        self.one_button.place(x=5, y=195)
-        self.two_button = Button(text="2", width=7, bd=4, height=2, command=self.two)
-        self.two_button.place(x=68, y=195)
-        self.three_button = Button(text="3", width=7, bd=4, height=2, command=self.three)
-        self.three_button.place(x=130, y=195)
-        self.multiply_button = Button(text="×",fg="red", width=14, bd=4, height=2, command=self.multiply)
-        self.multiply_button.place(x=194, y=195)
-        self.coma_button = Button(text=".", width=7,fg="red", bd=4, height=2, command=self.coma)
-        self.coma_button.place(x=5, y=240)
-        self.zero_button = Button(text="0", width=7, bd=4, height=2, command=self.zero)
-        self.zero_button.place(x=68, y=240)
-        self.divide_button = Button(text="÷", width=7,fg="red", bd=4, height=2, command=self.divide)
-        self.divide_button.place(x=130, y=240)
-        self.equal_button = Button(text="=", width=14,fg="red", bd=4, height=2, command=self.equal)
-        self.equal_button.place(x=194, y=240)
+        
+        self.display = Label(height=2, width=28, bg="white",fg="blue",font=("digital",15,"bold"), anchor=CENTER)
+        self.display.place(x=5,y=7)
+        
+        self.button_delete = Button(text="Backspace\n⇽",font=("times new roman",10,"bold"), bg="white",width=2, bd=4,padx=27,pady=7,activebackground="white",command=self.delete)
+        self.button_delete.place(x=5,y=63)
+        
+        self.button_ce = Button(text="Ce",font=("times new roman",12,"bold"), bg="white",width=2, bd=4,padx=24,pady=11,activebackground="white",command=self.clear)
+        self.button_ce.place(x=83,y=63)
+        
+        self.button_c = Button(text="C",font=("times new roman",12,"bold"), bg="white",width=4, bd=4,padx=17,pady=11,activebackground="white",command=self.clear)
+        self.button_c.place(x=159,y=63)
+        
+        self.button_seven = Button(text="7\nseven",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=26,pady=8,activebackground="white",command=self.seven)
+        self.button_seven.place(x=5,y=120)
+
+        self.button_eight = Button(text="8\neight",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=26,pady=8,activebackground="white",command=self.eight)
+        self.button_eight.place(x=82,y=120)
+
+        self.button_nine = Button(text="9\nnine",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=27,pady=8,activebackground="white",command=self.nine)
+        self.button_nine.place(x=159,y=120)
+
+        self.button_four = Button(text="4\nfour",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=26,pady=8,activebackground="white",command=self.four)
+        self.button_four.place(x=5,y=180)
+        
+        self.button_five = Button(text="5\nfive",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=26,pady=8,activebackground="white",command=self.five)
+        self.button_five.place(x=82,y=180)
+
+        self.button_six = Button(text="6\nsix",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=27,pady=8,activebackground="white",command=self.six)
+        self.button_six.place(x=159,y=180)
+        
+        self.button_one = Button(text="1\none",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=26,pady=7,activebackground="white",command=self.one)
+        self.button_one.place(x=5,y=240)
+        
+        self.button_two = Button(text="2\ntwo",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=26,pady=7,activebackground="white",command=self.two)
+        self.button_two.place(x=82,y=240)
+
+        self.button_three = Button(text="3\nthree",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=27,pady=7,activebackground="white",command=self.three)
+        self.button_three.place(x=159,y=240)
+
+        self.button_zero = Button(text="0\nzero",font=("times new roman",10,"bold"),bg="white", width=6, bd=5,padx=50,pady=8,activebackground="white",command=self.zero)
+        self.button_zero.place(x=5,y=298)
+        
+        self.button_coma = Button(text=".",font=("times new roman",10,"bold"), bg="white",width=2, bd=5,padx=27,pady=15,activebackground="white",command=self.coma)
+        self.button_coma.place(x=159,y=299)
+
+        self.button_divide = Button(text="/",font=("times new roman",15,"bold"), bg="white",width=4, bd=5,padx=24,pady=7,activebackground="white",command=self.divide)
+        self.button_divide.place(x=239,y=63)
+
+        self.button_multiply = Button(text="+",font=("times new roman",15,"bold"), bg="white",width=4, bd=5,padx=24,pady=8,activebackground="white",command=self.plus)        
+        self.button_multiply.place(x=239,y=120)
+        
+        self.button_minus = Button(text="-",font=("times new roman",15,"bold"), bg="white",width=4, bd=5,padx=24,pady=8,activebackground="white",command=self.minus)
+        self.button_minus.place(x=239,y=180)
+
+        self.button_plus = Button(text="×",font=("times new roman",15,"bold"), bg="white",width=4, bd=5,padx=24,pady=8,activebackground="white",command=self.multiply)
+        self.button_plus.place(x=239,y=240)
+
+        self.button_equal = Button(text="=",font=("times new roman",15,"bold"), bg="white",width=4, bd=5,padx=24,pady=8,activebackground="white",command=self.equal)
+        self.button_equal.place(x=239,y=299)
         
     def zero(self):
         self.processes += "0"
@@ -103,17 +122,20 @@ class GUI:
         self.display.config(text=self.processes)
     def delete(self):
         self.pro = list(self.processes)
-        self.pro.pop(-1)
+        try :
+            self.pro.pop(-1)
+        except Exception :
+            self.display.config(text="Math error")
         self.processes ="".join(self.pro)
         self.display.config(text=self.processes)
     def change(self):
-        try:
-            self.changed = int(self.processes) * (-1)
-            self.processes = str(self.changed)
-            self.display.config(text=self.processes)
-        except Exception :
-            self.display.config(text="Syntax error")
-            self.processes=""
+        # try:
+        self.changed = int(self.processes) * (-1)
+        self.processes = str(self.changed)
+        self.display.config(text=self.processes)
+        # except Exception :
+        self.display.config(text="Syntax error")
+        self.processes=""
             
     def equal(self,*x):
         self.pro = list(self.processes)
@@ -127,13 +149,21 @@ class GUI:
             if self.pro[1] == "0" :
                 self.processes = self.pro[0]
         self.display.config(text=self.processes) 
-    
-               
-def main():
+ 
 
-    root = Tk()
-    root.title("Calculator")
-    root.geometry("310x290")
-    calculator = GUI(root)
+def main():
+    
+    root=Tk()
+    root.title("Simple Calculator")
+    root.maxsize(width=351, height=362)
+    root.minsize(width=351, height=362)
+    calc = GUI(root)
+    root.config(bg="sky blue")
     root.mainloop()
+    
 main()
+
+
+
+
+
