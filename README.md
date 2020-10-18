@@ -148,8 +148,8 @@ class GUI :
             self.pro = self.processes.split(".")
             if self.pro[1] == "0" :
                 self.processes = self.pro[0]
-        self.display.config(text=self.processes) 
-
+        self.display.config(text=self.processes)
+        
 def main():
     
     root=Tk()
